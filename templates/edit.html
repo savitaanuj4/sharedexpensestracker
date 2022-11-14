@@ -1,0 +1,43 @@
+
+{% extends 'base.html' %}
+
+ {% block title%}
+    <title> Edit User Detail</title>
+
+ {% endblock %}
+
+ {% block body %}
+
+
+      <form action="/edit/{{user.id}}" method="post">
+
+        <h1>Update User Detail</h1>
+
+        <fieldset>
+
+          <label for="fname">First Name:</label>
+          <input required type="text" id="fname" name="first_name" value="{{user.first_name}}">
+            <label for="lname">Last Name:</label>
+
+          <input required type="text" id="lname" name="last_name" value="{{user.last_name}}">
+
+          <label for="mail">Email:</label>
+          <input required type="email" id="mail" name="user_email" value="{{user.email}}">
+
+            <label for="tel">Phone:</label>
+          <input required type="tel" id="tel" name="user_phone" value="{{user.phone}}">
+
+
+            <label for="address">Address:</label>
+            <input type="text"  id="address" name="user_address"  value="{{user.address}}">
+
+            <label for="isAdmin">isAdmin:</label>
+            <input type="text"  id="isAdmin" name="isAdmin"  value="{{user.isAdmin}}">
+
+        </fieldset>
+
+
+        <button type="submit">Update</button>
+      </form>
+
+ {% endblock %}

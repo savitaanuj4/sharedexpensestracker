@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title> User Dashboard </title>
+{% endblock %}
+
+{% block body %}
+
+    <div class="userdashboard">
+        <table>
+            <thead>
+            <tr>
+                <h1>User Information</h1>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><b>Id</b> </td>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <td><b>First Name</b></td>
+                <td>{{ user.first_name }} </td>
+            </tr>
+            <tr>
+                <td><b>Last Name</b></td>
+                <td>{{ user.last_name }}</td>
+            </tr>
+            <tr>
+                <td><b>Email</b></td>
+                <td>{{ user.email }}</td>
+            </tr>
+
+            <tr>
+                <td><b>Phone</b></td>
+                <td>{{ user.phone }}</td>
+            </tr>
+
+            <tr>
+                <td><b>Date Of Birth</b></td>
+                <td>{{ user.dob }}</td>
+            </tr>
+
+            <tr>
+                <td><b>Address</b></td>
+                <td>{{ user.address }}</td>
+            </tr>
+
+            <tr>
+            <td><a class="button" href="/edit/{{ user.id }}"> Edit </a></td>
+            <td><a class="button" href="/"> Logout </a></td>
+            </tr>
+            </tbody>
+
+        </table>
+
+
+
+    </div>
+
+
+    <div class="poll">
+        <h1>Polls </h1>
+        <table>
+            <th>  Sr No. </th>
+            <th> Poll Name</th>
+        {% for id, poll in polls %}
+            <tr>
+                <td>{{id+1}}</td>
+                <td><a href="/poll/{{poll.pollid}}">{{poll.pollname}}</a></td>
+            </tr>
+
+        {% endfor %}
+        </table>
+
+        <button onclick="location.href='/new_poll/{{user.id}}'">Create New Poll</button>
+
+    </div>
+{% endblock %}

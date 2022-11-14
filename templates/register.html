@@ -1,0 +1,43 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Sign Up Form</title>
+{% endblock %}
+
+{% block body %}
+
+      <form action="/register" method="post">
+
+        <h1>User Registration</h1>
+
+        <fieldset>
+
+          <label for="fname">First Name:</label>
+          <input required type="text" id="fname" name="first_name">
+            <label for="lname">Last Name:</label>
+
+          <input required type="text" id="lname" name="last_name">
+
+          <label for="mail">Email:</label>
+          <input required type="email" id="mail" name="user_email">
+
+            <label for="tel">Phone:</label>
+          <input required type="tel" id="tel" name="user_phone">
+
+            <label for="dob">Date Of Birth:</label>
+          <input required type="Date" id="dob" name="user_dob">
+
+            <label for="address">Address:</label>
+            <input type="text"  id="address" name="user_address">
+          <label for="password">Password:</label>
+          <input required type="password" id="password" name="user_password">
+
+
+        </fieldset>
+
+
+        <button type="submit">Sign Up</button>
+      </form>
+
+{% endblock %}

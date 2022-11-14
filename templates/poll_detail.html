@@ -1,0 +1,111 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shared Expense Tracker</title>
+
+    <style>
+
+        form, table {
+            max-width: 100%;
+            margin: 10px;
+            padding: 10px 20px;
+            background: #f4f7f8;
+            border-radius: 8px;
+        }
+
+        table, td, th {
+          border: 1px solid #ddd;
+          text-align: left;
+        }
+
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        th, td {
+          padding: 15px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="date"],
+        input[type="datetime"],
+        input[type="email"],
+        input[type="number"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="time"],
+        input[type="url"],
+        textarea,
+        select {
+          background: rgba(255,255,255,0.1);
+          border: none;
+          font-size: 16px;
+
+
+          outline: 0;
+          padding: 5px;
+          background-color: #e8eeef;
+          color: #8a97a0;
+          box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+    <form action="" method="post">
+
+        <h1> Add new transaction: </h1>
+
+        <fieldset>
+
+          <label for="purpose">Purpose:</label>
+          <input required type="text" id="purpose" name="purpose">
+            <label for="payer">Payer Name :</label>
+
+            <select name="payer" id="payer" >
+                {% for person in persons %}
+                <option value="{{person}}">{{person}}</option>
+                {% endfor %}
+            </select>
+
+          <label for="amount">Amount:</label>
+          <input required type="text" id="amount" name="amount">
+
+            <button type="submit">Submit</button>
+        </fieldset>
+
+
+
+      </form>
+
+    <table>
+        <thead> <h1>Recent Transactions </h1></thead>
+        <tr>
+            <th>Transaction Id.</th>
+            <th>Transaction Purpose</th>
+            <th>Payer Name</th>
+            <th>Amount</th>
+        </tr>
+
+
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{transaction.transaction_id}}</td>
+            <td>{{transaction.purpose}}</td>
+            <td>{{transaction.payer}}</td>
+            <td>{{transaction.amount}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

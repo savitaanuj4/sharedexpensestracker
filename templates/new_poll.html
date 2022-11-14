@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Index</title>
+{% endblock %}
+
+{% block body %}
+
+
+
+
+
+     <form action="" method="post">
+
+        <h1>Create a new poll</h1>
+
+        <fieldset>
+
+          <label for="pollname">Enter the Poll Name</label>
+          <input required type="text" id="pollname" name="pollname">
+            <label for="number_of_persons">Number of Persons</label>
+
+          <input required type="text" id="number_of_persons" name="number_of_persons">
+
+          <label for="persons">Name of all Persons(Comma Seperated)</label>
+          <input required type="text" id="persons" name="persons">
+
+        </fieldset>
+
+
+        <button type="submit">Create Poll</button>
+      </form>
+
+{% endblock %}
